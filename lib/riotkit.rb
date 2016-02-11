@@ -1,3 +1,4 @@
+require 'riotkit/client'
 require 'riotkit/configurable'
 require 'riotkit/defaults'
 
