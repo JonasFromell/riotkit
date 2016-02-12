@@ -56,4 +56,28 @@ describe Riotkit::Client do
     end
   end
 
+  describe ".connection" do
+    before do
+      Riotkit.reset!
+    end
+
+    it "caches the connection" do
+      connection = Riotkit.client.connection
+      expect(connection.object_id).to eq(Riotkit.client.connection.object_id)
+    end
+  end
+
+  describe ".get" do
+    before do
+      Riotkit.reset!
+    end
+
+    it "handles query params" do
+      req = stub_request(:get, "https://euw.api.pvp.net").with(query: { foo: "bar" })
+      Riotkit.client.get "/", foo: "bar"
+
+      assert_requested req
+    end
+  end
+
 end

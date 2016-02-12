@@ -4,7 +4,13 @@ module Riotkit
     #@!attribute [w] access_token
     # => @see
     # => @return [String] OAuth2 access token for authentication
-    attr_accessor :access_token
+    #@!attribute [w] region
+    # => @see
+    # => @return [String] The API region
+    #@!attribute [w] endpoint
+    # => @see
+    # => @return [String] The constructed API endpoint
+    attr_accessor :access_token, :region, :endpoint
 
     class << self
 
@@ -12,7 +18,9 @@ module Riotkit
       # @return [Array] Array of keys
       def keys
         @keys ||= [
-          :access_token
+          :access_token,
+          :region,
+          :endpoint
         ]
       end
     end
@@ -30,6 +38,12 @@ module Riotkit
       self
     end
     alias setup reset!
+
+    private
+
+    def options
+      Hash[Riotkit::Configurable.keys.map{ |key| [key, instance_variable_get(:"@#{key}")] }]
+    end
 
   end
 

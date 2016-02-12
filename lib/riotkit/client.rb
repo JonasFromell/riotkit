@@ -1,9 +1,11 @@
 require 'riotkit/configurable'
+require 'riotkit/request'
 
 module Riotkit
 
   class Client
     include Riotkit::Configurable
+    include Riotkit::Request
 
     def initialize(options={})
       Riotkit::Configurable.keys.each do |key|
