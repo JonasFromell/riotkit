@@ -1,4 +1,5 @@
 require 'faraday'
+require 'riotkit/response'
 
 module Riotkit
 
@@ -11,6 +12,7 @@ module Riotkit
     def connection
       @connection ||= Faraday.new(endpoint) do |http|
         http.adapter Faraday.default_adapter
+        http.use Riotkit::Response
       end
     end
 

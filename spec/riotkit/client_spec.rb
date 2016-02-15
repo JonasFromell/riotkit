@@ -73,7 +73,7 @@ describe Riotkit::Client do
     end
 
     it "handles query params" do
-      req = stub_request(:get, "https://euw.api.pvp.net").with(query: { foo: "bar" })
+      req = stub_request(:get, "https://euw.api.pvp.net").with(query: { foo: "bar" }).to_return(body: "{}")
       Riotkit.client.get "/", foo: "bar"
 
       assert_requested req
