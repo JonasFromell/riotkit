@@ -10,7 +10,7 @@ module Riotkit
     #@!attribute [w] endpoint
     # => @see
     # => @return [String] The constructed API endpoint
-    attr_accessor :access_token, :region, :endpoint
+    attr_accessor :api_key, :region, :endpoint
 
     class << self
 
@@ -18,7 +18,7 @@ module Riotkit
       # @return [Array] Array of keys
       def keys
         @keys ||= [
-          :access_token,
+          :api_key,
           :region,
           :endpoint
         ]

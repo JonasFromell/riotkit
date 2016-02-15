@@ -12,7 +12,7 @@ module Riotkit
       # @return [Map<string, details>] Summoner details
       # @see https://developer.riotgames.com/api/methods#!/1061/3663
       def summoner(name)
-        get "api/lol/#{Riotkit.region}/v#{Summoner::VERSION}/summoner/by-name/#{name}", api_key: "#{Riotkit.access_token}"
+        get "api/lol/#{Riotkit.region}/v#{Summoner::VERSION}/summoner/by-name/#{name}", api_key: "#{Riotkit.api_key}"
       end
     end
   end

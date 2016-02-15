@@ -9,8 +9,8 @@ module Riotkit
 
       # Default access token is grabbed from ENV
       # @return [String]
-      def access_token
-        ENV['RIOT_API_ACCESS_TOKEN']
+      def api_key
+        ENV['RIOT_API_KEY']
       end
 
       # Default region is grabbed from ENV

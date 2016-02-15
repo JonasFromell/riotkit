@@ -35,13 +35,13 @@ describe Riotkit::Client do
   describe "with class level configuration" do
     before do
       @options = {
-        :access_token => "87614b09dd141c22800f96f11737ade5226d7ba8"
+        :api_key => "87614b09dd141c22800f96f11737ade5226d7ba8"
       }
     end
 
     it "overrides the module configuration" do
       client = Riotkit::Client.new(@options)
-      expect(client.instance_variable_get(:"@access_token")).to eq("87614b09dd141c22800f96f11737ade5226d7ba8")
+      expect(client.instance_variable_get(:"@api_key")).to eq("87614b09dd141c22800f96f11737ade5226d7ba8")
     end
 
     it "can set configuration after initialization" do
@@ -52,7 +52,7 @@ describe Riotkit::Client do
         end
       end
 
-      expect(client.instance_variable_get(:"@access_token")).to eq("87614b09dd141c22800f96f11737ade5226d7ba8")
+      expect(client.instance_variable_get(:"@api_key")).to eq("87614b09dd141c22800f96f11737ade5226d7ba8")
     end
   end
 
